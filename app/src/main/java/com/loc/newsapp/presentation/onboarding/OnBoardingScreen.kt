@@ -19,8 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.loc.newsapp.presentation.common.NewsButton
 import com.loc.newsapp.presentation.common.NewsTextButton
-import com.loc.newsapp.presentation.onboarding.components.Dimension.MediumPadding2
-import com.loc.newsapp.presentation.onboarding.components.Dimension.PageIndicatorWidth
+import com.loc.newsapp.presentation.Dimens.MediumPadding2
+import com.loc.newsapp.presentation.Dimens.PageIndicatorWidth
 import com.loc.newsapp.presentation.onboarding.components.OnBoardingPage
 import com.loc.newsapp.presentation.onboarding.components.PageIndicator
 import kotlinx.coroutines.launch

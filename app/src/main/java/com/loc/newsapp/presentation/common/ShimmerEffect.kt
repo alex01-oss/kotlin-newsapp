@@ -1,5 +1,6 @@
 package com.loc.newsapp.presentation.common
 
+import android.content.res.Configuration
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -83,9 +84,9 @@ fun ArticleCardShimmerEffect(
 }
 
 @Preview(showBackground = true)
-@Preview()
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun Light() {
+fun ArticleCardShimmerEffectPreview() {
     NewsAppTheme() {
         ArticleCardShimmerEffect()
     }

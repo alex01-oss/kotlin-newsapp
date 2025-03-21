@@ -131,7 +131,8 @@ fun DetailsScreenPreview() {
                     urlToImage = "https://gizmodo.com/app/uploads/2024/10/sec-bitcoin-hack-arrest.jpg",
                     publishedAt = "2025-02-27T19:05:24Z",
                     content = "Can a President make money out of thin air? On paper, yes.\r\nDonald Trump and Elon Musk have been talking a lot about Fort Knox lately, the place where America keeps its official gold reserves. Both h… [+3792 chars]"
-                ), event = { }, navigateUp = { })
+                ), event = { }, navigateUp = { }
+            )
         }
     }
 }

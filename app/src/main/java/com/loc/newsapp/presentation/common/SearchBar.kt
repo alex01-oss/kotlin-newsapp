@@ -39,10 +39,10 @@ fun SearchBar(
     onValueChange: (String) -> Unit,
     onSearch: () -> Unit
 ) {
-    val InteractionSource = remember {
+    val interactionSource = remember {
         MutableInteractionSource()
     }
-    val isClicked = InteractionSource.collectIsPressedAsState().value
+    val isClicked = interactionSource.collectIsPressedAsState().value
     LaunchedEffect(key1 = isClicked) {
         if (isClicked) {
             onClick?.invoke()
@@ -90,7 +90,7 @@ fun SearchBar(
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
             keyboardActions = KeyboardActions(onSearch = { onSearch() }),
             textStyle = MaterialTheme.typography.bodySmall,
-            interactionSource = InteractionSource
+            interactionSource = interactionSource
         )
     }
 }

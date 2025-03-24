@@ -1,6 +1,5 @@
-package com.loc.newsapp.presentation.common
+package com.loc.newsapp.presentation.home.components
 
-import android.content.res.Configuration
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -18,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -43,13 +43,14 @@ fun ArticleCard(
 ) {
     val context = LocalContext.current
 
-    Row( modifier = modifier.clickable { onClick() }) {
+    Row(modifier = modifier.clickable { onClick() }) {
         AsyncImage(
             modifier = Modifier
                 .size(ArticleCardSize)
                 .clip(MaterialTheme.shapes.medium),
             model = ImageRequest.Builder(context).data(article.urlToImage).build(),
-            contentDescription = null
+            contentDescription = null,
+            contentScale = ContentScale.Crop
         )
 
         Column(
@@ -95,19 +96,21 @@ fun ArticleCard(
 }
 
 @Preview(showBackground = true)
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun ArticleCardPreview() {
     NewsAppTheme {
-        ArticleCard(article = Article(
-            author = "",
-            content = "",
-            description = "",
-            publishedAt = "2 hours",
-            source = Source(id = "", name = "BBC"),
-            title = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-            url = "",
-            urlToImage = ""
-        )) {  }
+        ArticleCard(
+            article = Article(
+                author = "",
+                content = "",
+                description = "",
+                publishedAt = "2 hours",
+                source = Source(id = "", name = "BBC"),
+                title = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+                url = "",
+                urlToImage = ""
+            )
+        ) { }
     }
 }

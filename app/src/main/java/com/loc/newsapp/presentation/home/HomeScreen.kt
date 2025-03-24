@@ -10,12 +10,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -26,12 +28,12 @@ import com.loc.newsapp.domain.model.Article
 import com.loc.newsapp.presentation.Dimens.MediumPadding1
 import com.loc.newsapp.presentation.common.ArticlesList
 import com.loc.newsapp.presentation.common.SearchBar
-import com.loc.newsapp.presentation.nvgraph.Route
 
 @Composable
 fun HomeScreen(
     articles: LazyPagingItems<Article>,
-    navigate: (String) -> Unit
+    navigateToSearch: () -> Unit,
+    navigateToDetails: (Article) -> Unit
 ) {
     val titles by remember {
         derivedStateOf {
@@ -48,7 +50,11 @@ fun HomeScreen(
 
     Column(modifier = Modifier
         .fillMaxSize()
-        .padding(top = MediumPadding1)
+        .padding(
+            top = MediumPadding1,
+            start = MediumPadding1,
+            end = MediumPadding1
+        )
         .statusBarsPadding()) {
 
         Image(
@@ -66,7 +72,7 @@ fun HomeScreen(
             text = "",
             readOnly = false,
             onValueChange = {},
-            onClick = {navigate(Route.SearchScreen.route)},
+            onClick = { navigateToSearch() },
             onSearch = {}
         )
 
@@ -76,7 +82,7 @@ fun HomeScreen(
             text = titles,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding( start = MediumPadding1)
+                .padding(start = MediumPadding1)
                 .basicMarquee(),
             fontSize = 12.sp,
             color = colorResource(id = R.color.placeholder)
@@ -87,7 +93,7 @@ fun HomeScreen(
         ArticlesList(
             modifier = Modifier.padding(horizontal = MediumPadding1),
             articles = articles,
-            onClick = { navigate(Route.DetailsScreen.route) }
+            onClick = { navigateToDetails(it) }
         )
     }
 }

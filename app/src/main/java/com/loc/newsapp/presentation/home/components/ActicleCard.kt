@@ -1,6 +1,6 @@
 package com.loc.newsapp.presentation.home.components
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.content.res.Configuration
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -32,6 +32,7 @@ import com.loc.newsapp.domain.model.Source
 import com.loc.newsapp.presentation.Dimens.ArticleCardSize
 import com.loc.newsapp.presentation.Dimens.ExtraSmallPadding
 import com.loc.newsapp.presentation.Dimens.ExtraSmallPadding2
+import com.loc.newsapp.presentation.Dimens.MediumPadding1
 import com.loc.newsapp.presentation.Dimens.smallIconSize
 import com.loc.newsapp.ui.theme.NewsAppTheme
 
@@ -56,7 +57,7 @@ fun ArticleCard(
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             modifier = Modifier
-                .padding(horizontal = ExtraSmallPadding)
+                .padding(start = MediumPadding1, end = ExtraSmallPadding)
                 .height(ArticleCardSize)
         ) {
             Text(
@@ -96,7 +97,7 @@ fun ArticleCard(
 }
 
 @Preview(showBackground = true)
-@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun ArticleCardPreview() {
     NewsAppTheme {
